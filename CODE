@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stdlib.h>
+float calculateCharges(float ph)
+{
+    float charges=0;
+    if (ph<=3)
+    {
+       charges+=2;
+    }
+    if (ph>3 && ph<24)
+    {
+        charges+=2;
+        charges+=(ph-3)*0.5;
+    }
+    if (ph==24){
+        charges+=10;}
+    return charges;
+}
+int main()
+{
+    char answer1,answer2;
+    float arr[10];
+    do{
+    int c;
+    float h;
+    printf("ENTER PARKED HOURS :");
+    scanf("%f",&h);
+    printf("Next CUSTOMER PLEASE :Y/N :");
+    scanf("%s",&answer1);
+    arr[c]=h;
+    c++;
+    }
+    while(answer1=='Y');
+    printf("Quit(Press 'Q')\t / get daily report(press 'R' :) ");
+    scanf("%s",&answer2);
+    int d=0;
+    float tcharge=0,psum=0;       //sum of parked hours && total charge
+    switch (answer2)
+    {
+        case 'Q':break;
+        case 'R':printf("\nCars\tParkedHours\tCharges\n");
+            for (d;d<3;d++) {psum+=arr[d];tcharge+=calculateCharges(arr[d]);
+            printf("%d\t%.1f\t\t%.2f\n",d+1,arr[d],calculateCharges(arr[d]));
+            }printf("TOTAL :\t%.1f\t\t%.2f",psum,tcharge);
+            break;
+
+    }
+
+
+
+
+
+
+}
